@@ -23,21 +23,21 @@ Luckily, Microsoft Azure have released new features about [expired date of virtu
 ## Prerequisites
 - Install [Azure PowerShell][4]
 
-## Script
+## Run this sample
 - Open the script file SetExpiredDateAzureVM.ps1
 - Edit the parameter “-VMName” and “-LabName” and “-ExpiredUTCDate”  
-```ps1
-Set-AzureVirtualMachineExpiredDate -VMName "vmname" -LabName "labname" -ExpiredUTCDate "2016-10-10"
-```
+  ```ps1
+  Set-AzureVirtualMachineExpiredDate -VMName "vmname" -LabName "labname" -ExpiredUTCDate "2016-10-10"
+  ```
  
-Notes: the date is in UTC format
+  Notes: the date is in UTC format
  
 - Then run the script in PowerShell console
-- After the script finishes its job, you will see similar outputs at below  
+- After the script finishes its job, you can see the result it's have Azure Virtual Machine infomation. 
 ![][5]
 
  
-Here are some code snippets for your reference.
+## Script
 ```ps1
 Function Set-AzureVirtualMachineExpiredDate 
 { 
