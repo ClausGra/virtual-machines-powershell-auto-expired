@@ -16,9 +16,9 @@ This script demonstrates [how to set expired date for Azure Virtual Machine in D
 
 
 ## Scenarios
-Practically, developers often create Azure Virtual Machines in Dev Labs for demo or development purpose. However, those “test” VM instances are also charged. Since nobody remembers to delete them after development, company shall then pay for the instances. Thus, it must be wonderful if those “test” VM instances can be automatically deleted.
+Practically, developers often create Azure Virtual Machines in Dev Labs for demo or development purpose, while those “test” VM instances are also charged by the company. Since nobody remembers to delete them after development, company will have to pay for the instances. Thus, it must be so wonderful to have “test” VM instances automatically deleted.
 
-Luckily, Microsoft Azure have released new features about [expired date of virtual machine][3] on October 6, 2016. IT pro can make the use of this new feature to optimize costs. And this sample also supplies an OOB script to set expired date for your existed VM instance in Dev Labs.
+Luckily, Microsoft Azure has released new features about [expired date of virtual machine][3] on October 6, 2016. IT pro can make the use of this new feature to optimize costs. Besides, this sample also supplies an OOB script to set expired date for your existed VM instance in Dev Labs.
 
 ## Prerequisites
 - Install [Azure PowerShell][4]
@@ -30,7 +30,7 @@ Luckily, Microsoft Azure have released new features about [expired date of virtu
   Set-AzureVirtualMachineExpiredDate -VMName "vmname" -LabName "labname" -ExpiredUTCDate "2016-10-10"
   ```
  
-  Notes: the date is in UTC format
+  Note: the date is in UTC format
  
 - Then run the script in PowerShell console
 - After the script finishes its job, you can see the result it's have Azure Virtual Machine infomation. 
