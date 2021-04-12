@@ -24,7 +24,7 @@ Function Set-AzureVirtualMachineExpiredDate
 	)
 
 	# get vm info
-	$targetVMInfo = Get-AzureRmResource | Where { $_.Name -eq "$LabName/$VMName" -and $_.ResourceType -eq 'Microsoft.DevTestLab/labs/virtualMachines' }
+	$targetVMInfo = Get-AzResource | Where { $_.Name -eq "$LabName/$VMName" -and $_.ResourceType -eq 'Microsoft.DevTestLab/labs/virtualMachines' }
 
 	# if not find, throw exception
 	If ($targetVMInfo -eq $null) {
@@ -32,12 +32,12 @@ Function Set-AzureVirtualMachineExpiredDate
 	}
 
 	# get vm properties
-	$vmInfoWithProperties = Get-AzureRmResource -ResourceId $targetVMInfo.ResourceId -ExpandProperties
+	$vmInfoWithProperties = Get-AzResource -ResourceId $targetVMInfo.ResourceId -ExpandProperties -Force
 	$vmProperties = $vmInfoWithProperties.Properties
 
 	# set expired date
 	$vmProperties | Add-Member -MemberType NoteProperty -Name expirationDate -Value $ExpiredUTCDate
-	Set-AzureRmResource -ResourceId $targetVMInfo.ResourceId -Properties $vmProperties -Force
+	Set-AzResource -ResourceId $targetVMInfo.ResourceId -Properties $vmProperties -Force
 
 	Write-Host "Successfully to set VM "$LabName/$VMName" to expire on UTC $ExpiredUTCDate"
 }
